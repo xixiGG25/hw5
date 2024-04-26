@@ -1,0 +1,41 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="stmarkdown.css">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+</head>
+<h1><a href="#hw4-building-website" id="hw4-building-website">HW4: Building Website</a></h1>
+<h3><a href="#chenxi-gao-mbbs-ms" id="chenxi-gao-mbbs-ms">Chenxi Gao, MBBS, MS</a></h3>
+<p><strong>Graph:</strong></p>
+<pre><code>. cls
+
+. clear
+
+.         set obs 30
+
+. gen age = (rnormal() * 15) + 57
+
+. gen age_t=(rt(_N)*15)+57
+
+. 
+. hist age, ///
+&gt;    fcolor(orange%40) /// simulated normal 
+&gt;    addplot(hist age_t, fcolor(midblue%50)) /// simulated t-distribution 
+&gt;    normal /// theoretical normal
+&gt;    legend(on ///
+&gt;       lab(1 &quot;Sampled from Normal&quot;) ///
+&gt;           lab(2 &quot;Theoretical Normal&quot;) ///
+&gt;           lab(3 &quot;Sampled from t-distribution&quot;) ///
+&gt;           )
+
+.           
+.           graph export hist_age.png, replace
+
+</code></pre>
+<p><img src="Graph.svg" ></p>
+<p>The results are based on simulated data</p>
+<p>Distribution of $${ Age, years} \sim \mathcal{N}(\mu=57,\sigma^2=225)$$</p>
+<p>. . .</p>
